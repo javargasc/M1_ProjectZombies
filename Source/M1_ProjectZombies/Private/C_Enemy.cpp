@@ -2,6 +2,7 @@
 
 
 #include "C_Enemy.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 AC_Enemy::AC_Enemy()
@@ -12,20 +13,21 @@ AC_Enemy::AC_Enemy()
 	PawnSensor = CreateDefaultSubobject<UPawnSensingComponent>("Pawn Sensor");
 	PawnSensor->SetPeripheralVisionAngle(45.f);
 	PawnSensor->SightRadius = 1500.f;
+
+	PawnSensor->OnSeePawn.AddDynamic(this, &AC_Enemy::OnSeePawn);
+	LevelManager = (ALevelManagerClass*)UGameplayStatics::GetActorOfClass(GetWorld(), ALevelManagerClass::StaticClass());
 }
 
 // Called when the game starts or when spawned
 void AC_Enemy::BeginPlay()
 {
 	Super::BeginPlay();
-	PawnSensor->OnSeePawn.AddDynamic(this, &AC_Enemy::OnSeePawn);
 }
 
 // Called every frame
 void AC_Enemy::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 // Called to bind functionality to input
@@ -45,4 +47,9 @@ void AC_Enemy::OnSeePawn(APawn* OtherPawn)
 	{
 		AIController->MoveToLocation(OtherPawn->GetNavAgentLocation(), -1, false);
 	}
+}
+
+void AC_Enemy::OnDeath()
+{
+	LevelManager->EnemyDied();
 }

@@ -6,6 +6,7 @@
 #include "GameFramework/Character.h"
 #include "Perception/PawnSensingComponent.h"
 #include "AIController.h"
+#include "LevelManagerClass.h"
 #include "C_Enemy.generated.h"
 
 UCLASS()
@@ -26,9 +27,14 @@ public:
 	UFUNCTION()
 		void OnSeePawn(APawn* OtherPawn);
 
+	UFUNCTION(BlueprintCallable)
+		void OnDeath();
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 		UPawnSensingComponent* PawnSensor;
 
+	UPROPERTY()
+		ALevelManagerClass* LevelManager;
 
 protected:
 	// Called when the game starts or when spawned
