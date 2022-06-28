@@ -136,6 +136,10 @@ void AM1_ProjectZombiesCharacter::SetupPlayerInputComponent(class UInputComponen
 	PlayerInputComponent->BindAxis("TurnRate", this, &AM1_ProjectZombiesCharacter::TurnAtRate);
 	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
 	PlayerInputComponent->BindAxis("LookUpRate", this, &AM1_ProjectZombiesCharacter::LookUpAtRate);
+	
+	//PM1_TP1
+	PlayerInputComponent->BindAction("Interact", IE_Released, this, &AM1_ProjectZombiesCharacter::OnInteractInput);
+	PlayerInputComponent->BindAction("OpenMenu", IE_Released, this, &AM1_ProjectZombiesCharacter::OnOpenMenu);
 }
 
 void AM1_ProjectZombiesCharacter::OnFire()
@@ -297,4 +301,14 @@ bool AM1_ProjectZombiesCharacter::EnableTouchscreenMovement(class UInputComponen
 	}
 	
 	return false;
+}
+
+void AM1_ProjectZombiesCharacter::OnInteractInput() 
+{
+	//GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Green, "Interactuando");
+}
+
+void AM1_ProjectZombiesCharacter::OnOpenMenu() 
+{
+	//GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Green, "Aca abriria el menu, si hubiera uno...");
 }

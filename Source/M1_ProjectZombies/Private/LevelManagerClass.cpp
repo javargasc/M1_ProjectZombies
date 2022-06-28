@@ -94,10 +94,15 @@ void ALevelManagerClass::EnemyDied()
 
 void ALevelManagerClass::Win()
 {
-	GEngine->AddOnScreenDebugMessage(-1, 3, FColor::Emerald, "You Win!");
+	//GEngine->AddOnScreenDebugMessage(-1, 3, FColor::Emerald, "You Win!");
 }
 
 void ALevelManagerClass::Lose()
 {
 	GEngine->AddOnScreenDebugMessage(-1, 3, FColor::Emerald, "You Lose!");
+}
+
+bool ALevelManagerClass::CanWin()
+{
+	return bCanStartRound && CurrentRound == 5;
 }

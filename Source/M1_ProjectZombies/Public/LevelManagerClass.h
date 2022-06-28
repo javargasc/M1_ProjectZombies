@@ -60,6 +60,10 @@ public:
 	UFUNCTION(BlueprintCallable)
 		void Lose();
 
+
+	UFUNCTION(BlueprintCallable)
+		bool CanWin();
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

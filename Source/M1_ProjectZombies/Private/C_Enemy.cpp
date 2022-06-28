@@ -11,10 +11,9 @@ AC_Enemy::AC_Enemy()
 	PrimaryActorTick.bCanEverTick = true;
 
 	PawnSensor = CreateDefaultSubobject<UPawnSensingComponent>("Pawn Sensor");
-	PawnSensor->SetPeripheralVisionAngle(45.f);
+	PawnSensor->SetPeripheralVisionAngle(180.f);
 	PawnSensor->SightRadius = 1500.f;
 
-	PawnSensor->OnSeePawn.AddDynamic(this, &AC_Enemy::OnSeePawn);
 	LevelManager = (ALevelManagerClass*)UGameplayStatics::GetActorOfClass(GetWorld(), ALevelManagerClass::StaticClass());
 }
 
@@ -22,6 +21,10 @@ AC_Enemy::AC_Enemy()
 void AC_Enemy::BeginPlay()
 {
 	Super::BeginPlay();
+
+	GEngine->AddOnScreenDebugMessage(-1, 3, FColor::Red, "Begin play Enemy charger");
+
+	PawnSensor->OnSeePawn.AddDynamic(this, &AC_Enemy::OnSeePawn);
 }
 
 // Called every frame
