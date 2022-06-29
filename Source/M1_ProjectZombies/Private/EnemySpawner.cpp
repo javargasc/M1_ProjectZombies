@@ -32,7 +32,6 @@ bool AEnemySpawner::Spawn()
 {
 	FActorSpawnParameters SpawnInfo;
 	SpawnInfo.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::DontSpawnIfColliding;
-	if (IsValid(GetWorld()->SpawnActor<AC_Enemy>(ActorToSpawn ,MyLoc, MyRot, SpawnInfo))) return true;
-	return false;
+	return IsValid(GetWorld()->SpawnActor<AC_Enemy>(ActorToSpawn ,MyLoc, MyRot, SpawnInfo));
 }
 
