@@ -106,3 +106,8 @@ bool ALevelManagerClass::CanWin()
 {
 	return bCanStartRound && CurrentRound == 5;
 }
+
+bool ALevelManagerClass::InRound() 
+{
+	return !bCanStartRound;
+}
