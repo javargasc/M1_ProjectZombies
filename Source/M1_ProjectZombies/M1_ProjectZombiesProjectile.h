@@ -22,6 +22,33 @@ class AM1_ProjectZombiesProjectile : public AActor
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Movement, meta = (AllowPrivateAccess = "true"))
 	UProjectileMovementComponent* ProjectileMovement;
 
+	UPROPERTY(EditAnywhere)
+		float DeltaTime = 0;
+
+	UFUNCTION(BlueprintCallable)
+		void SetDeltaTime(float delta);
+
+	UFUNCTION(BlueprintCallable)
+		float GetDeltaTime();
+
+	UPROPERTY(EditAnywhere)
+		float BulletDuration = 1;
+
+	UFUNCTION(BlueprintCallable)
+		void SetBulletDuration(float time);
+
+	UFUNCTION(BlueprintCallable)
+		float DecreaseBulletDuration(float decrement);
+
+	UPROPERTY(EditAnywhere)
+		bool Hit_NOCPP = false;
+
+	UFUNCTION(BlueprintCallable)
+		void SetHit(bool b);
+
+	UFUNCTION(BlueprintCallable)
+		bool GetHit();
+
 public:
 	AM1_ProjectZombiesProjectile();
 

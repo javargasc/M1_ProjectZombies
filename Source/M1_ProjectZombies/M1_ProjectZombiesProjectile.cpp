@@ -41,3 +41,34 @@ void AM1_ProjectZombiesProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* O
 		Destroy();
 	}
 }
+
+void AM1_ProjectZombiesProjectile::SetDeltaTime(float deltaTime)
+{
+	DeltaTime = deltaTime;
+}
+
+float AM1_ProjectZombiesProjectile::GetDeltaTime()
+{
+	return DeltaTime;
+}
+
+void AM1_ProjectZombiesProjectile::SetBulletDuration(float time)
+{
+	BulletDuration = time;
+}
+
+float AM1_ProjectZombiesProjectile::DecreaseBulletDuration(float decrement)
+{
+	SetBulletDuration(BulletDuration - decrement);
+	return BulletDuration;
+}
+
+void AM1_ProjectZombiesProjectile::SetHit(bool b)
+{
+	Hit_NOCPP = b;
+}
+
+bool AM1_ProjectZombiesProjectile::GetHit()
+{
+	return Hit_NOCPP;
+}
