@@ -48,6 +48,15 @@ class AM1_ProjectZombiesProjectile : public AActor
 
 	UFUNCTION(BlueprintCallable)
 		bool GetHit();
+	
+	UPROPERTY(EditAnywhere)
+		UMaterialInstanceDynamic* BulletMatRef;
+
+	UFUNCTION(BlueprintCallable)
+		void SetBulletMatRef(UMaterialInstanceDynamic* Mat);
+
+	UFUNCTION(BlueprintCallable)
+		UMaterialInstanceDynamic* GetBulletMatRef();
 
 public:
 	AM1_ProjectZombiesProjectile();

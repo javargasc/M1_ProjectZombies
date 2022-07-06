@@ -72,3 +72,13 @@ bool AM1_ProjectZombiesProjectile::GetHit()
 {
 	return Hit_NOCPP;
 }
+
+void AM1_ProjectZombiesProjectile::SetBulletMatRef(UMaterialInstanceDynamic* Mat)
+{
+	BulletMatRef = Mat;
+}
+
+UMaterialInstanceDynamic* AM1_ProjectZombiesProjectile::GetBulletMatRef()
+{
+	return BulletMatRef;
+}
