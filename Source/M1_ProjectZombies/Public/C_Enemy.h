@@ -36,6 +36,9 @@ public:
 	UPROPERTY()
 		ALevelManagerClass* LevelManager;
 
+	UFUNCTION(BlueprintCallable)
+		bool GetChaseState();
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

@@ -56,3 +56,8 @@ void AC_Enemy::OnDeath()
 {
 	LevelManager->EnemyDied();
 }
+
+bool AC_Enemy::GetChaseState()
+{
+	return PawnSensor->bSeePawns;
+}
