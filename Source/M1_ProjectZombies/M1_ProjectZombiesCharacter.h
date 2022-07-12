@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "C_UserWidget.h"
+#include "C_GameInstance.h"
 #include "M1_ProjectZombiesCharacter.generated.h"
 
 class UInputComponent;
@@ -50,6 +52,10 @@ class AM1_ProjectZombiesCharacter : public ACharacter
 	/** Motion controller (left hand) */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	UMotionControllerComponent* L_MotionController;
+
+public:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	float Life;
 
 public:
 	AM1_ProjectZombiesCharacter();

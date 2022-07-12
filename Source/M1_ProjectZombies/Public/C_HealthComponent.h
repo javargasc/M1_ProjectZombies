@@ -7,7 +7,7 @@
 #include "C_HealthComponent.generated.h"
 
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS( ClassGroup=(Custom),Blueprintable , meta=(BlueprintSpawnableComponent) )
 class M1_PROJECTZOMBIES_API UC_HealthComponent : public UActorComponent
 {
 	GENERATED_BODY()
@@ -15,6 +15,15 @@ class M1_PROJECTZOMBIES_API UC_HealthComponent : public UActorComponent
 public:	
 	// Sets default values for this component's properties
 	UC_HealthComponent();
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	float LifeAmountCPP = 100;
+
+	UFUNCTION(BlueprintCallable)
+	void ApplyDamage(float damageAmount);
+
+	UFUNCTION(BlueprintCallable)
+	bool isLive();
 
 protected:
 	// Called when the game starts

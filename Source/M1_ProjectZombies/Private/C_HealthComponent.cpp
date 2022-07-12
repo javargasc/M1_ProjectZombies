@@ -32,3 +32,12 @@ void UC_HealthComponent::TickComponent(float DeltaTime, ELevelTick TickType, FAc
 	// ...
 }
 
+void UC_HealthComponent::ApplyDamage(float damageAmount)
+{
+	LifeAmountCPP -= damageAmount;
+}
+
+bool UC_HealthComponent::isLive()
+{
+	return LifeAmountCPP > 0;
+}

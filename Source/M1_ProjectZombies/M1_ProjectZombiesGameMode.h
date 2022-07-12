@@ -10,7 +10,7 @@ UCLASS(minimalapi)
 class AM1_ProjectZombiesGameMode : public AGameModeBase
 {
 	GENERATED_BODY()
-
+    
 public:
 	AM1_ProjectZombiesGameMode();
 };

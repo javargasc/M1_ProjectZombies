@@ -5,6 +5,8 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "C_GameStates.h"
+#include "C_GameInstance.h"
+#include "C_PlayerController.h"
 #include "C_MapManager.generated.h"
 
 UCLASS()
@@ -42,4 +44,10 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 		TEnumAsByte<EGameStates> GetGameState();
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		UC_GameInstance* GameInstanceCPP;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		AC_PlayerController* PlayerControllerCPP;
 };
